@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>pt.min-saude.spms.modules</groupId>
+    <artifactId>motis</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  
+  <dependencies>
+  	<dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-context</artifactId>
+	  <version>${spring.version}</version>
+	</dependency>
+	
+	<dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>eclipselink</artifactId>
+	  <version>${eclipse-link.version}</version>
+	  <scope>provided</scope> <!-- Included in app server -->
+	</dependency>
+	
+	<dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.core</artifactId>
+	  <version>${eclipse-link.version}</version>
+	  <scope>provided</scope> <!-- Included in app server -->
+	</dependency>
+
+	<dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.jpa</artifactId>
+	  <version>${eclipse-link.version}</version>
+	  <scope>provided</scope> <!-- Included in app server -->
+	</dependency>
+
+	<dependency>
+	  <!-- Included in app server, but maintained to not conflict with build -->
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>javax.persistence</artifactId>
+	  <version>${javax-persistence.version}</version>
+	</dependency>
+	
+	<!-- Internal -->
+  
+  </dependencies>
+  
+  <artifactId>motis.persistence</artifactId>
+</project>

@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>pt.min-saude.spms.modules</groupId>
+  <artifactId>motis</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>motis</name>
+  
+  <modules>
+  	<module>motis.build</module>
+  	<module>motis.persistence</module>
+  	<module>motis.core</module>
+  	<module>motis.services</module>
+  	<module>motis.webapp</module>
+  </modules>
+  
+  <properties>
+    <project-final-name>motis.app</project-final-name>
+  	<project-version>0.0.1-SNAPSHOT</project-version>
+  	
+  	<spring.version>5.0.1.RELEASE</spring.version>
+  	<aspectj.version>1.8.11</aspectj.version>
+  	
+  	<mysql-connector.version>5.1.43</mysql-connector.version>
+  	<eclipse-link.version>2.6.4</eclipse-link.version>
+	<javax-persistence.version>2.1.1</javax-persistence.version>
+	
+	<javax-servlet.version>3.1.0</javax-servlet.version>
+	<java-jwt.version>3.2.0</java-jwt.version>
+	
+	<webjars-locator-wls.version>0.9</webjars-locator-wls.version>
+	<webjars-bootstrap.version>3.3.7</webjars-bootstrap.version>
+  	
+  </properties>
+  
+  <build>
+  	<plugins>
+  	  
+  	  <plugin>
+  		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-compiler-plugin</artifactId>
+		<version>3.6.1</version>
+		<configuration>
+		  <source>1.8</source>
+		  <target>1.8</target>
+		  <encoding>UTF-8</encoding>
+		</configuration>
+  	  </plugin>
+  	
+  	</plugins>
+  </build>
+  
+</project>

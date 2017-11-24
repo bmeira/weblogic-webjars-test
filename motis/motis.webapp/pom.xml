@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>pt.min-saude.spms.modules</groupId>
+    <artifactId>motis</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>motis.webapp</artifactId>
+  <packaging>war</packaging>
+  
+  <dependencies>
+  	<dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-webmvc</artifactId>
+	  <version>${spring.version}</version>
+	</dependency>
+	
+	<dependency>
+	  <groupId>javax.servlet</groupId>
+	  <artifactId>javax.servlet-api</artifactId>
+	  <version>${javax-servlet.version}</version>
+	  <scope>provided</scope> <!-- Included in app server -->
+	</dependency>
+	
+	
+	
+	<!-- Webjars -->
+	<dependency>
+		<groupId>org.webjars</groupId>
+		<artifactId>webjars-locator-weblogic</artifactId>
+		<version>${webjars-locator-wls.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.webjars.bower</groupId>
+		<artifactId>bootstrap</artifactId>
+		<version>${webjars-bootstrap.version}</version>
+	</dependency>
+  
+  </dependencies>
+  
+  <build>
+	<plugins>
+	  
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-war-plugin</artifactId>
+		<version>3.1.0</version>
+		<configuration>
+		  <failOnMissingWebXml>false</failOnMissingWebXml>
+		</configuration>
+	  </plugin>
+
+	</plugins>
+	<finalName>motis.webapp</finalName>
+  </build>
+</project>

@@ -1,0 +1,173 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>pt.min-saude.spms.modules</groupId>
+    <artifactId>motis</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>motis.build</artifactId>
+  <packaging>ear</packaging>
+  
+  <dependencies>
+  
+    <!-- Core -->
+  	<dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-core</artifactId>
+	  <version>${spring.version}</version>
+	</dependency>
+
+	<dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-context</artifactId>
+	  <version>${spring.version}</version>
+	</dependency>
+
+	<dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-beans</artifactId>
+	  <version>${spring.version}</version>
+	</dependency>
+
+	<dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-aop</artifactId>
+	  <version>${spring.version}</version>
+	</dependency>
+	
+	
+	<!-- AspectJ -->
+	<dependency>
+	  <groupId>org.aspectj</groupId>
+	  <artifactId>aspectjrt</artifactId>
+	  <version>${aspectj.version}</version>
+	</dependency>
+
+	<dependency>
+	  <groupId>org.aspectj</groupId>
+	  <artifactId>aspectjweaver</artifactId>
+	  <version>${aspectj.version}</version>
+	</dependency>
+	
+	
+	<!-- Persistence -->
+	<dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.core</artifactId>
+	  <version>${eclipse-link.version}</version>
+	  <scope>provided</scope> <!-- Included in app server -->
+	</dependency>
+
+	<dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.jpa</artifactId>
+	  <version>${eclipse-link.version}</version>
+	  <scope>provided</scope> <!-- Included in app server -->
+	</dependency>
+	
+	<dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>javax.persistence</artifactId>
+	  <version>${javax-persistence.version}</version>
+	  <scope>provided</scope> <!-- Included in app server -->
+	</dependency>
+	
+	
+	<!-- Web -->
+	<dependency>
+	  <groupId>javax.servlet</groupId>
+	  <artifactId>javax.servlet-api</artifactId>
+	  <version>${javax-servlet.version}</version>
+	  <scope>provided</scope> <!-- Included in app server -->
+	</dependency>
+	
+	<dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-webmvc</artifactId>
+	  <version>${spring.version}</version>
+	</dependency>
+	
+	
+	<!-- Utils -->
+	<dependency>
+		<groupId>org.webjars</groupId>
+		<artifactId>webjars-locator-weblogic</artifactId>
+		<version>${webjars-locator-wls.version}</version>
+	</dependency>
+	
+	
+	<!-- Internal -->
+	<dependency>
+	  <groupId>pt.min-saude.spms.modules</groupId>
+	  <artifactId>motis.core</artifactId>
+	  <version>${project.version}</version>
+	  <scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+	  <groupId>pt.min-saude.spms.modules</groupId>
+	  <artifactId>motis.persistence</artifactId>
+	  <version>${project.version}</version>
+	  <scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+	  <groupId>pt.min-saude.spms.modules</groupId>
+	  <artifactId>motis.services</artifactId>
+	  <version>${project.version}</version>
+	  <type>war</type>
+	  <scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+	  <groupId>pt.min-saude.spms.modules</groupId>
+	  <artifactId>motis.webapp</artifactId>
+	  <version>${project.version}</version>
+	  <type>war</type>
+	  <scope>provided</scope>
+	</dependency>
+  
+  </dependencies>
+  
+  <build>
+
+	<plugins>
+	  
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-ear-plugin</artifactId>
+		<version>2.10.1</version>
+		<configuration>
+		  <version>7</version>
+		  <skinnyWars>true</skinnyWars><!-- Elimina dependências repetidas entre módulos -->
+		  <fileNameMapping>no-version</fileNameMapping>
+		  <includeLibInApplicationXml>false</includeLibInApplicationXml>
+		  <defaultLibBundleDir>lib</defaultLibBundleDir>
+		  <finalName>${project-final-name}-${project-version}</finalName>
+		  <modules>
+			<jarModule>
+			  <groupId>pt.min-saude.spms.modules</groupId>
+			  <artifactId>motis.core</artifactId>
+			</jarModule>
+			<jarModule>
+			  <groupId>pt.min-saude.spms.modules</groupId>
+			  <artifactId>motis.persistence</artifactId>
+			</jarModule>
+			<webModule>
+			  <groupId>pt.min-saude.spms.modules</groupId>
+			  <artifactId>motis.webapp</artifactId>
+			</webModule>
+			<webModule>
+			  <groupId>pt.min-saude.spms.modules</groupId>
+			  <artifactId>motis.services</artifactId>
+			</webModule>
+		  </modules>
+		</configuration>
+	  </plugin>
+	  
+	</plugins>
+  </build>
+  
+</project>
